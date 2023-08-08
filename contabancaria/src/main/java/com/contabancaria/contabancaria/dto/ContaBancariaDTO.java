@@ -17,7 +17,7 @@ public class ContaBancariaDTO implements Serializable {
     private BigDecimal saldoFinal;
     private BigDecimal valorOperacao;
     private String tipoOperacao;
-    private Cliente clientes;
+
 
     public ContaBancariaDTO(ContaBancaria contaBancaria) {
         this.idConta= contaBancaria.getIdConta();
@@ -27,12 +27,12 @@ public class ContaBancariaDTO implements Serializable {
         this.saldoFinal = contaBancaria.getSaldoFinal();
         this.valorOperacao = contaBancaria.getValorOperacao();
         this.tipoOperacao = contaBancaria.getTipoOperacao();
-        this.clientes = contaBancaria.getCliente();
+
     }
 
 
     public ContaBancaria toContaBancaria() {
-        return new ContaBancaria(idConta, numeroConta, agencia, saldoAtual, saldoFinal, valorOperacao, tipoOperacao, clientes);
+        return new ContaBancaria(idConta, numeroConta, agencia, saldoAtual, saldoFinal, valorOperacao, tipoOperacao);
     }
     
     public Long getIdConta() {
@@ -91,11 +91,5 @@ public class ContaBancariaDTO implements Serializable {
         this.tipoOperacao = tipoOperacao;
     }
 
-    public Cliente getClientes() {
-        return clientes;
-    }
 
-    public void setClientes(Cliente clientes) {
-        this.clientes = clientes;
-    }
 }

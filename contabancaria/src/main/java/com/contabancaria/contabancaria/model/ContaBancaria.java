@@ -21,7 +21,7 @@ private String tipoOperacao;
 @JoinColumn(name = "cliente_id")
 private Cliente cliente;
 
-    public ContaBancaria(Long idConta, int numeroConta, int agencia, BigDecimal saldoAtual, BigDecimal saldoFinal, BigDecimal valorOperacao, String tipoOperacao, Cliente cliente) {
+    public ContaBancaria(Long idConta, int numeroConta, int agencia, BigDecimal saldoAtual, BigDecimal saldoFinal, BigDecimal valorOperacao, String tipoOperacao) {
         this.idConta = idConta;
         this.numeroConta = numeroConta;
         this.agencia = agencia;
@@ -29,7 +29,6 @@ private Cliente cliente;
         this.saldoFinal = saldoFinal;
         this.valorOperacao = valorOperacao;
         this.tipoOperacao = tipoOperacao;
-        this.cliente = cliente;
     }
 
 

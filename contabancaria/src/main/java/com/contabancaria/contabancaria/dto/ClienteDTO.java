@@ -13,17 +13,16 @@ public class ClienteDTO {
 
     private Long idCliente;
     private String nomeCliente;
-    private List<ContaBancaria> contaBancaria;
+
 
     public ClienteDTO(Cliente cliente) {
         this.idCliente = cliente.getIdCliente();
         this.nomeCliente = cliente.getNomeCliente();
-        this.contaBancaria = cliente.getContaBancaria();
     }
 
 
     public Cliente toClientes(){
-        return new Cliente(idCliente,nomeCliente,contaBancaria);
+        return new Cliente(idCliente,nomeCliente);
     }
 
     public Long getIdCliente() {
@@ -42,11 +41,4 @@ public class ClienteDTO {
         this.nomeCliente = nomeCliente;
     }
 
-    public List<ContaBancaria> getContaBancaria() {
-        return contaBancaria;
-    }
-
-    public void setContaBancaria(List<ContaBancaria> contaBancaria) {
-        this.contaBancaria = contaBancaria;
-    }
 }

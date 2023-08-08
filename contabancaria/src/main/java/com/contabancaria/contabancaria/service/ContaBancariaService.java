@@ -48,7 +48,7 @@ public class ContaBancariaService {
         contaBancaria.setSaldoAtual(contaBancariaDTO.getSaldoAtual());
         contaBancaria.setSaldoFinal(contaBancariaDTO.getSaldoFinal());
         contaBancaria.setTipoOperacao(contaBancariaDTO.getTipoOperacao());
-        contaBancaria.setCliente(contaBancariaDTO.getClientes());
+
 
         ContaBancaria contaBancariaAtualizada = contaBancariaRepository.save(contaBancaria);
 

@@ -14,10 +14,9 @@ public class Cliente {
     @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContaBancaria> contaBancaria;
 
-    public Cliente(Long idCliente, String nomeCliente, List<ContaBancaria> contaBancaria) {
+    public Cliente(Long idCliente, String nomeCliente) {
         this.idCliente = idCliente;
         this.nomeCliente = nomeCliente;
-        this.contaBancaria = contaBancaria;
     }
 
 

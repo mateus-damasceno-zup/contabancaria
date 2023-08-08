@@ -43,7 +43,6 @@ public class ClienteService {
         Cliente clienteAtual = clienteRepository.findById(id).get();
         //todo: adicionar verificacao se nao existir e estourar um erro. como estourar um erro no spring
         clienteAtual.setNomeCliente(clienteDTO.getNomeCliente());
-        clienteAtual.setContaBancaria(clienteDTO.getContaBancaria());
         Cliente clienteAtualizado = clienteRepository.save(clienteAtual);
 
         return new ClienteDTO((clienteAtualizado));

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="/contaBancaria")
+@RequestMapping(value ="/contabancaria")
 public class ContaBancariaController {
 
     private final ContaBancariaService contaBancariaService;
@@ -21,7 +21,7 @@ public class ContaBancariaController {
         this.contaBancariaService = contaBancariaService;
         this.operacaoFactory = operacaoFactory;
     }
-    @GetMapping(value="/listaTodos")
+    @GetMapping(value="/listatodos")
     public Iterable<ContaBancariaDTO> listaContaBancarias() {
 
         return contaBancariaService.listaContasBancarias();
