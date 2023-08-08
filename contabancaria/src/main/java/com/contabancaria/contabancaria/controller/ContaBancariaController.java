@@ -5,6 +5,7 @@ import com.contabancaria.contabancaria.operacaoStrategy.EnumStrategyOperacao;
 import com.contabancaria.contabancaria.operacaoStrategy.IOperacaoStrategy;
 import com.contabancaria.contabancaria.operacaoStrategy.OperacaoFactory;
 import com.contabancaria.contabancaria.service.ContaBancariaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -15,12 +16,12 @@ public class ContaBancariaController {
 
     private final ContaBancariaService contaBancariaService;
     private final OperacaoFactory operacaoFactory;
-
+    @Autowired
     public ContaBancariaController(ContaBancariaService contaBancariaService, OperacaoFactory operacaoFactory) {
         this.contaBancariaService = contaBancariaService;
         this.operacaoFactory = operacaoFactory;
     }
-    @GetMapping
+    @GetMapping(value="/listaTodos")
     public Iterable<ContaBancariaDTO> listaContaBancarias() {
 
         return contaBancariaService.listaContasBancarias();

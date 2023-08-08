@@ -2,15 +2,12 @@ package com.contabancaria.contabancaria.dto;
 
 import com.contabancaria.contabancaria.model.Cliente;
 import com.contabancaria.contabancaria.model.ContaBancaria;
-import com.contabancaria.contabancaria.operacaoStrategy.OperacaoFactory;
-import jakarta.persistence.OneToMany;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
+@NoArgsConstructor
 public class ContaBancariaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long idConta;
@@ -30,11 +27,9 @@ public class ContaBancariaDTO implements Serializable {
         this.saldoFinal = contaBancaria.getSaldoFinal();
         this.valorOperacao = contaBancaria.getValorOperacao();
         this.tipoOperacao = contaBancaria.getTipoOperacao();
-        this.clientes = contaBancaria.getClientes();
+        this.clientes = contaBancaria.getCliente();
     }
 
-    public ContaBancariaDTO() {
-    }
 
     public ContaBancaria toContaBancaria() {
         return new ContaBancaria(idConta, numeroConta, agencia, saldoAtual, saldoFinal, valorOperacao, tipoOperacao, clientes);

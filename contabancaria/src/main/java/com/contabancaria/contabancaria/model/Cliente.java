@@ -1,32 +1,33 @@
 package com.contabancaria.contabancaria.model;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 @Entity
+@NoArgsConstructor
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCLiente;
+    private Long idCliente;
     private String nomeCliente;
-    @OneToMany (mappedBy = "clientes", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContaBancaria> contaBancaria;
 
-    public Cliente(Long idCLiente, String nomeCliente, List<ContaBancaria> contaBancaria) {
-        this.idCLiente = idCLiente;
+    public Cliente(Long idCliente, String nomeCliente, List<ContaBancaria> contaBancaria) {
+        this.idCliente = idCliente;
         this.nomeCliente = nomeCliente;
         this.contaBancaria = contaBancaria;
     }
 
-    public Cliente() {
+
+
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public Long getIdCLiente() {
-        return idCLiente;
-    }
-
-    public void setIdCLiente(Long idCLiente) {
-        this.idCLiente = idCLiente;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNomeCliente() {

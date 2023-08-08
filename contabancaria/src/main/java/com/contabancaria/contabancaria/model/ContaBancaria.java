@@ -1,9 +1,11 @@
 package com.contabancaria.contabancaria.model;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
+@NoArgsConstructor
 public class ContaBancaria {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +19,9 @@ private BigDecimal valorOperacao;
 private String tipoOperacao;
 @ManyToOne
 @JoinColumn(name = "cliente_id")
-private Cliente clientes;
+private Cliente cliente;
 
-    public ContaBancaria(Long idConta, int numeroConta, int agencia, BigDecimal saldoAtual, BigDecimal saldoFinal, BigDecimal valorOperacao, String tipoOperacao, Cliente clientes) {
+    public ContaBancaria(Long idConta, int numeroConta, int agencia, BigDecimal saldoAtual, BigDecimal saldoFinal, BigDecimal valorOperacao, String tipoOperacao, Cliente cliente) {
         this.idConta = idConta;
         this.numeroConta = numeroConta;
         this.agencia = agencia;
@@ -27,11 +29,10 @@ private Cliente clientes;
         this.saldoFinal = saldoFinal;
         this.valorOperacao = valorOperacao;
         this.tipoOperacao = tipoOperacao;
-        this.clientes = clientes;
+        this.cliente = cliente;
     }
 
-    public ContaBancaria() {
-    }
+
 
     public Long getIdConta() {
         return idConta;
@@ -89,11 +90,11 @@ private Cliente clientes;
         this.tipoOperacao = tipoOperacao;
     }
 
-    public Cliente getClientes() {
-        return clientes;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setClientes(Cliente clientes) {
-        this.clientes = clientes;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

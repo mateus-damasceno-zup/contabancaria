@@ -2,37 +2,36 @@ package com.contabancaria.contabancaria.dto;
 
 import com.contabancaria.contabancaria.model.Cliente;
 import com.contabancaria.contabancaria.model.ContaBancaria;
-import jakarta.persistence.ManyToOne;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
 public class ClienteDTO {
 
     private static final long serialVersionUID = 1L;
 
-    private Long idCLiente;
+    private Long idCliente;
     private String nomeCliente;
     private List<ContaBancaria> contaBancaria;
 
     public ClienteDTO(Cliente cliente) {
-        this.idCLiente = cliente.getIdCLiente();
+        this.idCliente = cliente.getIdCliente();
         this.nomeCliente = cliente.getNomeCliente();
         this.contaBancaria = cliente.getContaBancaria();
     }
 
-    public ClienteDTO() {
-    }
 
     public Cliente toClientes(){
-        return new Cliente(idCLiente,nomeCliente,contaBancaria);
+        return new Cliente(idCliente,nomeCliente,contaBancaria);
     }
 
-    public Long getIdCLiente() {
-        return idCLiente;
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdCLiente(Long idCLiente) {
-        this.idCLiente = idCLiente;
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNomeCliente() {

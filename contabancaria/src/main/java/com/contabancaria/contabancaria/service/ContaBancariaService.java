@@ -1,8 +1,6 @@
 package com.contabancaria.contabancaria.service;
 
-import com.contabancaria.contabancaria.dto.ClienteDTO;
 import com.contabancaria.contabancaria.dto.ContaBancariaDTO;
-import com.contabancaria.contabancaria.model.Cliente;
 import com.contabancaria.contabancaria.model.ContaBancaria;
 import com.contabancaria.contabancaria.repository.ContaBancariaRepository;
 import org.springframework.stereotype.Service;
@@ -50,7 +48,7 @@ public class ContaBancariaService {
         contaBancaria.setSaldoAtual(contaBancariaDTO.getSaldoAtual());
         contaBancaria.setSaldoFinal(contaBancariaDTO.getSaldoFinal());
         contaBancaria.setTipoOperacao(contaBancariaDTO.getTipoOperacao());
-        contaBancaria.setClientes(contaBancariaDTO.getClientes());
+        contaBancaria.setCliente(contaBancariaDTO.getClientes());
 
         ContaBancaria contaBancariaAtualizada = contaBancariaRepository.save(contaBancaria);
 

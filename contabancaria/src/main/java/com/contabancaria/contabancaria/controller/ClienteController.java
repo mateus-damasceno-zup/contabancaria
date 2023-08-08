@@ -2,6 +2,7 @@ package com.contabancaria.contabancaria.controller;
 
 import com.contabancaria.contabancaria.dto.ClienteDTO;
 import com.contabancaria.contabancaria.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public class ClienteController {
 
     private final ClienteService clienteService;
-
+    @Autowired
     public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }
@@ -33,12 +34,12 @@ public class ClienteController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deletaBebida(@PathVariable Long id) {
+    public void deletaCliente(@PathVariable Long id) {
         clienteService.deletaCliente(id);
     }
 
     @PutMapping("/{id}")
-    public ClienteDTO atualizaBebida(@PathVariable Long id,
+    public ClienteDTO atualizaCliente(@PathVariable Long id,
                                      @RequestBody ClienteDTO clienteDTO) {
         return clienteService.atualizaCliente(id, clienteDTO);
     }
