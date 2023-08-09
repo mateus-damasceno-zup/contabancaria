@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 public class OperacaoSaque implements IOperacaoStrategy {
     @Override
     public ContaBancaria realizaOperacao(BigDecimal valor, ContaBancaria contaBancaria) {
+        contaBancaria.setSaldo(contaBancaria.getSaldo()-valor);
+
         return contaBancaria;
     }
 }

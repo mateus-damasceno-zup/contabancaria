@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class OperacaoDeposito implements IOperacaoStrategy {
     @Override
     public ContaBancaria realizaOperacao(BigDecimal valor, ContaBancaria contaBancaria) {
+        contaBancaria.setSaldo(valor + contaBancaria.getSaldo());
 
         return contaBancaria;
     }
