@@ -31,9 +31,7 @@ public class ContaBancariaDTO implements Serializable {
     }
 
 
-    public ContaBancaria toContaBancaria() {
-        return new ContaBancaria(idConta, numeroConta, agencia, saldoAtual, saldoFinal, valorOperacao, tipoOperacao);
-    }
+
     
     public Long getIdConta() {
         return idConta;

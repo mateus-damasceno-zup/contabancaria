@@ -11,21 +11,15 @@ import java.util.Set;
 
 @Component
 public class OperacaoFactory {
-
-    private Map<EnumStrategyOperacao, IOperacaoStrategy> operacao;
-
-    @Autowired
-    public OperacaoFactory(Set<IOperacaoStrategy> operacaoSet) {
-       criaOperacao(operacaoSet);
+    public static IOperacaoStrategy getEstrategia(String tipoEstrategia){
+        if ("saque".equalsIgnoreCase(tipoEstrategia)){
+            return new OperacaoSaque();
+        }else if("deposito".equalsIgnoreCase(tipoEstrategia)){
+            return new OperacaoDeposito();
+        }
+    throw new IllegalArgumentException("operacao invalida "+ tipoEstrategia);
     }
 
-    public IOperacaoStrategy encontrarEstrategia(EnumStrategyOperacao enumStrategyOperacao){
-        return operacao.get(enumStrategyOperacao);
-    }
 
-    private void criaOperacao(Set<IOperacaoStrategy> estrategiaSet){
-        operacao = new HashMap<EnumStrategyOperacao, IOperacaoStrategy>();
-        estrategiaSet.forEach(
-                estrategia -> operacao.put(estrategia.getOperacaoStrategy(),estrategia));
-    }
+
 }
